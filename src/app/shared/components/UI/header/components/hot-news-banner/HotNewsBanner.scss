@@ -1,0 +1,13 @@
+@import "/src/app/variables.scss";
+
+.header-hot-news-banner {
+  background-color: $base-background-color;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    font-size: 18pt;
+    color: $secondary-font-color;
+  }
+}

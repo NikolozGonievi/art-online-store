@@ -1,0 +1,23 @@
+@import "/src/app/variables.scss";
+
+.header-store-navigation-menu {
+  display: flex;
+  justify-content: center;
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+
+    li {
+      font-size: 15pt;
+      a {
+        color: $base-font-color;
+      }
+      //   is active ar mushaobs , dasamushavebelia
+      & :active {
+        color: $active-navigation-link-font-color;
+      }
+    }
+  }
+}

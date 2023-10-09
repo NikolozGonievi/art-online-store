@@ -1,0 +1,13 @@
+@import "/src/app/variables.scss";
+
+.header-store-title-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  h1 {
+    font-size: 24pt;
+    font-weight: bold;
+    color: $base-font-color;
+  }
+}
