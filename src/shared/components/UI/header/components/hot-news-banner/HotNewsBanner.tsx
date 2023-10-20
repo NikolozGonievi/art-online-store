@@ -1,4 +1,4 @@
-import './HotNewsBanner.scss'
+import "./HotNewsBanner.style.scss";
 
 export default function HotNewsBanner() {
   return (

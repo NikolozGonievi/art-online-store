@@ -8,14 +8,13 @@
     align-items: center;
     justify-content: center;
     gap: 50px;
-
+    list-style: none;
     li {
       font-size: 15pt;
       a {
         color: $base-font-color;
       }
-      //   is active ar mushaobs , dasamushavebelia
-      & :active {
+      .active-link {
         color: $active-navigation-link-font-color;
       }
     }
