@@ -18,7 +18,7 @@ export default function HeaderNavigation() {
             href={"/home"}
             className={currentPath === "/home" ? "active-link" : ""}
           >
-            {t("home")} Home
+            {t("home")}
           </Link>
         </li>
         <li>
@@ -26,7 +26,7 @@ export default function HeaderNavigation() {
             href={"/store"}
             className={currentPath === "/shop" ? "active-link" : ""}
           >
-            Store
+            {t("store")}
           </Link>
         </li>
         <li>
@@ -34,7 +34,7 @@ export default function HeaderNavigation() {
             href={"about-us"}
             className={currentPath === "/about-us" ? "active-link" : ""}
           >
-            About Us
+            {t("about_us")}
           </Link>
         </li>
         <li>
@@ -42,7 +42,7 @@ export default function HeaderNavigation() {
             href={"contact"}
             className={currentPath === "/contact" ? "active-link" : ""}
           >
-            Contact
+            {t("contact")}
           </Link>
         </li>
       </ul>

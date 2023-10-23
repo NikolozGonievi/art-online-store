@@ -13,6 +13,7 @@
       font-size: 15pt;
       a {
         color: $base-font-color;
+        text-transform: capitalize;
       }
       .active-link {
         color: $active-navigation-link-font-color;
