@@ -4,9 +4,14 @@ import { usePathname } from "next/navigation";
 import "./HeaderNavigation.style.scss";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { getLocale } from "@/middleware";
+import useLang from "@/shared/hooks/useLang";
 
 export default function HeaderNavigation() {
   const currentPath = usePathname();
+  const currentLang = useLang();
+
+  console.log("HeaderNavigation", currentLang);
 
   // const t = await getDictionary("ka");
   const t = useTranslations();
@@ -15,32 +20,40 @@ export default function HeaderNavigation() {
       <ul>
         <li>
           <Link
-            href={"/home"}
-            className={currentPath === "/home" ? "active-link" : ""}
+            href={`/${currentLang}/home`}
+            className={
+              currentPath === `${currentLang}/home` ? "active-link" : ""
+            }
           >
             {t("home")}
           </Link>
         </li>
         <li>
           <Link
-            href={"/store"}
-            className={currentPath === "/shop" ? "active-link" : ""}
+            href={`/${currentLang}/store`}
+            className={
+              currentPath === `${currentLang}/store` ? "active-link" : ""
+            }
           >
             {t("store")}
           </Link>
         </li>
         <li>
           <Link
-            href={"about-us"}
-            className={currentPath === "/about-us" ? "active-link" : ""}
+            href={`/${currentLang}/about-us`}
+            className={
+              currentPath === `/${currentLang}/about-us` ? "active-link" : ""
+            }
           >
             {t("about_us")}
           </Link>
         </li>
         <li>
           <Link
-            href={"contact"}
-            className={currentPath === "/contact" ? "active-link" : ""}
+            href={`/${currentLang}/contact`}
+            className={
+              currentPath === `/${currentLang}/contact` ? "active-link" : ""
+            }
           >
             {t("contact")}
           </Link>

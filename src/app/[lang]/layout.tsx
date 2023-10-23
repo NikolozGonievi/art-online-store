@@ -69,7 +69,7 @@ export default async function LocaleLayout({
   params: { lang: string };
 }) {
   let messages;
-  console.log("LocaleLayout", lang);
+  // console.log("LocaleLayout", lang);
 
   try {
     messages = (await import(`./dictionaries/${lang}.json`)).default;

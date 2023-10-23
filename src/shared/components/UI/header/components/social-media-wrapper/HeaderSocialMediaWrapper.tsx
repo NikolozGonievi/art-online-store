@@ -23,11 +23,11 @@ export default function HeaderSocialMediaWrapper() {
 
   return (
     <div className="header-social-media-icon-wrapper">
-      {socialMediaIcons.map((icon) => {
+      {socialMediaIcons.map((icon, index) => {
         const { src, alt, url, className } = icon;
 
         return (
-          <Link href={url} target="_blank">
+          <Link key={index} href={url} target="_blank">
             <Image
               src={src}
               alt={alt}

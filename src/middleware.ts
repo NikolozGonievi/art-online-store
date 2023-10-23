@@ -1,17 +1,19 @@
 import { notFound } from "next/navigation";
 import { NextRequest } from "next/server";
 
-let locales = ["en", "ka", "ru"];
+export const locales = ["en", "ka", "ru"];
 
-const defaultLocale = 'ka'
+const defaultLocale = "ka";
 
 // Get the preferred locale, similar to the above or using a library
-function getLocale(request: NextRequest) {
+export function getLocale(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
   const activeLocale = locales.find(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
+  // console.log("middleware getLocale", pathname, activeLocale);
   return activeLocale /* ?? defaultLocale */;
 }
 
@@ -23,15 +25,15 @@ export default function middleware(request: NextRequest) {
   );
 
   if (pathnameHasLocale) return;
-  
+
   // Redirect if there is no locale
   const locale = getLocale(request);
-  console.log('middleware', locale, pathname);
-  if(locale){
-
+  // console.log("middleware", locale, pathname , request.nextUrl);
+  if (locale) {
     request.nextUrl.pathname = `/${locale}${pathname}`;
-  }else{
-    request.nextUrl.pathname = `/${defaultLocale}/not-found`;
+  } else {
+    // request.nextUrl.pathname = `/${defaultLocale}/not-found`;
+    request.nextUrl.pathname = `/${defaultLocale}${pathname}`;
   }
   // e.g. incoming request is /products
   // The new URL is now /en-US/products
