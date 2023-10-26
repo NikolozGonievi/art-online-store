@@ -2,16 +2,19 @@
 
 import { Space, Select, Tag } from "antd";
 import { ICustomDropdownOption } from "./CustomSelect.model";
-import CustomImage from "../custom-icon/CustomImage";
+import CustomImage from "../image/CustomImage";
 import type { CustomTagProps } from "rc-select/lib/BaseSelect";
 import { CSSProperties } from "react";
 import "./CustomSelect.style.scss";
 
 type Props = {
+  placeholder: string;
   options: Array<ICustomDropdownOption>;
   defaultValue?: ICustomDropdownOption;
   className?: string;
   style?: CSSProperties;
+  disabled?: boolean;
+  onChange?: () => {};
 };
 
 export default function CustomDropdown({
@@ -19,52 +22,21 @@ export default function CustomDropdown({
   defaultValue,
   style,
   className,
+  placeholder,
+  disabled,
+  onChange,
 }: Props): React.ReactNode {
-  const tagRender = (props: CustomTagProps) => {
-    const { label, value, closable, onClose } = props;
-    const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
-      event.preventDefault();
-      event.stopPropagation();
-    };
-    console.log("====================================");
-    console.log("aba aq ra xdeba ?", props);
-    console.log("====================================");
-    return (
-      <Tag
-        color={value}
-        onMouseDown={onPreventMouseDown}
-        closable={closable}
-        onClose={onClose}
-      >
-        <Space>
-          {/* <div className="select-option-wrapper">
-            {icon && (
-              <CustomImage
-                src={item.icon}
-                alt={`${item.label}`}
-                width={20}
-                height={20}
-              />
-            )}
-
-          </div> */}
-          {label}
-        </Space>
-      </Tag>
-    );
-  };
-
   const { Option, OptGroup } = Select;
 
   return (
     <>
       <Select
-        placeholder={"test"}
+        placeholder={placeholder}
         style={style}
         className={className}
-        defaultValue={defaultValue}
-        tagRender={tagRender}
-        // value={defaultValue}
+        defaultValue={defaultValue?.value}
+        disabled={disabled}
+        onChange={onChange}
       >
         {options.map((item) => {
           const { label, value, disabled, children, icon, obj } = item;
