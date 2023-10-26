@@ -1,37 +1,33 @@
-import Image from "next/image";
 import "./HeaderLanguageSelector.style.scss";
 import GeorgianFlag from "../../../../../../../../../public/icons/georgian-flag.png";
 import RussianFlag from "../../../../../../../../../public/icons/russian-flag.png";
 import EnglishFlag from "../../../../../../../../../public/icons/english-flag.png";
+import CustomDropdown from "@/shared/UI/dropdown/CustomSelect";
+import { ICustomDropdownOption } from "@/shared/UI/dropdown/CustomSelect.model";
 
-type ILanguageOptListItem = {
-  flagImg: any;
-  title: string;
-  value: string;
-};
-
-export default function HeaderLanguageSelector() {
-  const languageOptions: Array<ILanguageOptListItem> = [
+export default function HeaderLanguageSelector({ lang }: { lang: string }) {
+  console.log("====================================");
+  console.log("lang selector ", lang);
+  console.log("====================================");
+  const langOpts: Array<ICustomDropdownOption> = [
     {
-      title: "РУ",
+      label: "РУ",
       value: "ru",
-      flagImg: RussianFlag,
+      icon: RussianFlag,
     },
-    { title: "ქარ", value: "ka", flagImg: GeorgianFlag },
-    { title: "EN", value: "en", flagImg: EnglishFlag },
+    { label: "ქარ", value: "ka", icon: GeorgianFlag },
+    { label: "EN", value: "en", icon: EnglishFlag },
   ];
+
+  const defaultValue = langOpts.find((opt) => opt.value === lang);
 
   return (
     <>
-      language chage
-      {languageOptions.map((lang, index) => {
-        return (
-          <div key={index}>
-            <Image src={lang.flagImg} alt={lang.title} width={20} height={20} />
-            {lang.title}
-          </div>
-        );
-      })}
+      <CustomDropdown
+        options={langOpts}
+        className="language-select"
+        defaultValue={defaultValue}
+      />
     </>
   );
 }

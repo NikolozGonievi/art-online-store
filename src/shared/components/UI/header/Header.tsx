@@ -7,15 +7,15 @@ import HeaderNavigation from "./components/header-navigation/HeaderNavigation";
 import HeaderSocialMediaWrapper from "./components/social-media-wrapper/HeaderSocialMediaWrapper";
 import HeaderPersonalSpaceWrapper from "./components/personal-space-wrapper/HeaderPersonalSpaceWrapper";
 
-export default function Header() {
+export default function Header({ lang }: { lang: string }) {
   return (
-    <div className="header-wrapper" >
+    <div className="header-wrapper">
       <HotNewsBanner />
       <StoreTitle />
       <div className="header-navigations-wrapper">
         <HeaderSocialMediaWrapper />
         <HeaderNavigation />
-        <HeaderPersonalSpaceWrapper />
+        <HeaderPersonalSpaceWrapper lang={lang} />
       </div>
     </div>
   );

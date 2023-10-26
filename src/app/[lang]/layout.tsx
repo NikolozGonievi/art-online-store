@@ -81,7 +81,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={lang} messages={messages}>
           <div className="layout-wrapper">
             <div>
-              <Header></Header>
+              <Header lang={lang}></Header>
               <div>{children}</div>
             </div>
             <Footer></Footer>

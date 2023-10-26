@@ -3,12 +3,12 @@ import HeaderLanguageSelector from "./components/language-selector/HeaderLanguag
 import HeaderShoppingCart from "./components/shopping-cart/HeaderShoppingCart";
 import HeaderUserProfile from "./components/user-profile/HeaderUserProfile";
 
-export default function HeaderPersonalSpaceWrapper() {
+export default function HeaderPersonalSpaceWrapper({ lang }: { lang: string }) {
   return (
     <div className="header-personal-space-wrapper">
       <HeaderUserProfile />
       <HeaderShoppingCart />
-      <HeaderLanguageSelector />
+      <HeaderLanguageSelector lang={lang} />
     </div>
   );
 }
