@@ -1,5 +1,6 @@
 "use client";
 
+import { MouseEventHandler } from "react";
 import IButtonProps from "./CustomButton.model";
 
 export default function CustomButton({
@@ -12,6 +13,15 @@ export default function CustomButton({
 }: IButtonProps) {
   const targetClassName = "";
 
+  function handleClick(e: any): void {
+    e.stopPropagation();
+    e.preventDefault();
+
+    if (onClick) {
+      onClick(e);
+    }
+  }
+
   return (
     <>
       <button
@@ -19,7 +29,7 @@ export default function CustomButton({
         style={style}
         className={targetClassName}
         disabled={disabled}
-        onClick={onClick}
+        onClick={handleClick}
       >
         {label}
       </button>

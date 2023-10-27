@@ -6,5 +6,5 @@ export default interface IButtonProps {
   target?: "";
   disabled?: boolean;
   style?: CSSProperties;
-  onClick?: () => {};
+  onClick?: CallableFunction;
 }
