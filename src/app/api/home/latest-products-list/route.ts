@@ -14,14 +14,6 @@ export async function GET(request: NextRequest) {
 
     const promises = await Promise.all([getElectronics, getJewelery]);
 
-    // console.log(
-    // "promises",
-    // getElectronics,
-    // promises,
-    // promises.flatMap((item) => item),
-    // getProductsListDataMapper(promises.flatMap((item) => item))
-    // );
-
     const productsGroupByCategory = getProductsListDataMapper(
       promises.flatMap((item) => item)
     );

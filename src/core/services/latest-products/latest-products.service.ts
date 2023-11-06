@@ -2,7 +2,7 @@ import { IProductListItemResponse } from "@/app/api/home/latest-products-list/mo
 import { apiGET, apiPOST } from "../api/api.service";
 
 export async function getLatestProductsList() /* :Promise<IProductListItemResponse> */ {
-  return apiGET("home/latest-products-list", { paging: null, ragaca: "test" });
+  return apiGET("home/latest-products-list", { });
 }
 
 export async function postProductTest() {

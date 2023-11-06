@@ -7,6 +7,7 @@ export async function apiGET(url: string, params?: any) {
       next: { revalidate: 0 },
     }
   );
+  console.log("get", url);
 
   const response = await responseHandler(res);
 
@@ -39,7 +40,9 @@ async function responseHandler(promise: Promise<any>): Promise<any> {
 
 async function successHandler(resp: Response) {
   return await new Promise((resolve, reject) => {
-    resolve(resp.json());
+    // console.log('ress', resp);
+    
+    // resolve(resp.json());
   });
 }
 

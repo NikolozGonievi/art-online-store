@@ -1,3 +1,7 @@
+import ProductsList from "./components/products-list/ProductsList";
+
 export default function StorePage() {
-  return <>this is store page</>;
+  return <>
+  <ProductsList/>
+  </>;
 }
